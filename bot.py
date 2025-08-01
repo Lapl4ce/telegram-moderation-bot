@@ -21,7 +21,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def main():
+async def main():
     """Основная функция запуска бота"""
     # Инициализация бота
     bot = Bot(

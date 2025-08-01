@@ -102,12 +102,12 @@ async def help_command(message: Message, **kwargs):
     
     await message.reply(help_text)
 
-@router.message(F.text & ~Command())
+@router.message(F.text)
 async def handle_text_message(message: Message, **kwargs):
     """Handle regular text messages for bad word filtering."""
     from database.database import Database
     
-    if not message.text:
+    if not message.text or message.text.startswith('/'):
         return
     
     # Check for bad words
